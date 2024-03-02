@@ -1,0 +1,33 @@
+{%extends "layout.html"%}
+
+{%block content%}
+{%import "_macros.html" as macros%}
+<div class="container">
+    <div class="row">
+        <h3>Alumnos</h3>
+        <h4><a href="index.html">Nuevo</a></h4>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Apaterno</th>
+                    <th>Correo</th>
+                    <th>Eliminar</th>
+                    <th>Modificar</th>
+                </tr>
+            </thead>
+            <tbody>
+                {%for alum in alumnos%}
+                <tr>
+                    <td>{{alum.nombre}}</td>
+                    <td>{{alum.apaterno}}</td>
+                    <td>{{alum.email}}</td>
+                    <td><a href="eliminar?id={{alum.id}}" class="btn btn-danger">E</a></td>
+                    <td><a href="modificar?id={{alum.id}}" class="btn btn-warning">M</a></td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+    </div>
+</div>
+{%endblock%}
